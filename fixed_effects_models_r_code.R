@@ -34,29 +34,21 @@ DB[columns_to_wins] <- lapply(DB[columns_to_wins], function(x) Winsorize(x, prob
 
 
 
-MOD1 <- plm(LEVERAGE_GRWTRATE ~ TOT_GRWTRATE + LEVERAGE_NATLOG_LAG + Entity_institute+Entity_real+ Y2005 + Y2006 + 
-              Y2007 + Y2008 + Y2009 + Y2010 + Y2011 + Y2012 + Y2013 + Y2014 + Y2015 + 
-              Y2016 + Y2017 + Y2018 + Y2019 + Y2020 + Y2021 + Y2022, 
+MOD1 <- plm(LEVERAGE_GRWTRATE ~ TOT_GRWTRATE + LEVERAGE_NATLOG_LAG + factor(Year), 
             data = DB, model = "within")
 summary(MOD1)
 
 
 
-MOD2 =plm(LEVERAGE_GRWTRATE ~ TOT_GRWTRATE + MRKT_VALUE_BOOK_RATIO_LAG + LEVERAGE_NATLOG_LAG+ Entity_institute+Entity_real+
-            Y2005 + Y2006 + Y2007 + Y2008 + Y2009 + Y2010 + Y2011 + Y2012 + Y2013 + Y2014 + Y2015 + 
-            Y2016 + Y2017 + Y2018 + Y2019 + Y2020 + Y2021 + Y2022, 
+MOD2 =plm(LEVERAGE_GRWTRATE ~ TOT_GRWTRATE + MRKT_VALUE_BOOK_RATIO_LAG + LEVERAGE_NATLOG_LAG+factor(Year), 
           data = DB, model = "within")
 summary(MOD2)
 
-MOD3 = plm(LEVERAGE_GRWTRATE ~ MKT_VALUE_GRWTRATE + LEVERAGE_NATLOG_LAG + Entity_institute+Entity_real+Y2005 + Y2006+
-              Y2007 + Y2008 + Y2009 + Y2010 + Y2011 + Y2012 + Y2013 + Y2014 + Y2015 + 
-             Y2016 + Y2017 + Y2018 + Y2019 + Y2020 + Y2021 + Y2022, 
+MOD3 = plm(LEVERAGE_GRWTRATE ~ MKT_VALUE_GRWTRATE + LEVERAGE_NATLOG_LAG + factor(Year), 
            data = DB, model = "within")
 summary(MOD3)
 
-MOD4 = plm(LEVERAGE_GRWTRATE ~ MKT_VALUE_GRWTRATE + MRKT_VALUE_BOOK_RATIO_LAG +LEVERAGE_NATLOG_LAG+Entity_institute+Entity_real+Y2005 + Y2006 + 
-             Y2007 + Y2008 + Y2009 + Y2010 + Y2011 + Y2012 + Y2013 + Y2014 + Y2015 + 
-             Y2016 + Y2017 + Y2018 + Y2019 + Y2020 + Y2021 + Y2022, 
+MOD4 = plm(LEVERAGE_GRWTRATE ~ MKT_VALUE_GRWTRATE + MRKT_VALUE_BOOK_RATIO_LAG +factor(Year), 
            data = DB, model = "within")
 summary(MOD4)
 
