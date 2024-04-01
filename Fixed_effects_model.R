@@ -16,7 +16,7 @@ library(lmtest)
 
 setwd("C:\\Users\\endur\\Desktop\\progetti")
 
-DB = read_excel("Final_datasetwins.xlsx")
+DB = read_excel("Final_dataset_wins.xlsx")
 
 DB = DB %>% group_by(Name) %>% 
   mutate(LEVERAGE_NATLOG_LAG = dplyr::lag(LEVERAGE_NATLOG))
